@@ -19,5 +19,6 @@ MODEL_FILE_NAME = "model"
 MODEL_FILE_EXTENSION = ".pkl"
 
 ARTIFACTS_DIR =  "artifacts"
+PREDICTION_DIR = 'predictions'
 
 

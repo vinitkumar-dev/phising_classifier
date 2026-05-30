@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Train Model</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+Phishing URL Classifier
+</div>
+
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/train">Train Model</a></li>
+<li><a href="/predict">Predict URL</a></li>
+</ul>
+
+</nav>
+
+<div class="container">
+
+<h1>Train ML Model</h1>
+
+<button id="trainBtn" class="btn">
+Start Training
+</button>
+
+<div id="loader" class="loader hidden"></div>
+
+<div id="result"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

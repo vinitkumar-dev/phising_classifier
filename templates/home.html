@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Phishing URL Classifier</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+Phishing URL Classifier
+</div>
+
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/train">Train Model</a></li>
+<li><a href="/predict">Predict URL</a></li>
+</ul>
+
+</nav>
+
+
+<section class="hero">
+
+<h1>Phishing URL Classifier</h1>
+
+<p>
+Detect phishing websites using Machine Learning.
+</p>
+
+<div class="accuracy-card">
+
+<h2>Accuracy Score</h2>
+
+<span class="accuracy">
+{{ accuracy }}%
+</span>
+
+</div>
+
+<div class="hero-buttons">
+
+<a href="/train" class="btn">
+Train Model
+</a>
+
+<a href="/predict" class="btn secondary">
+Predict URL
+</a>
+
+</div>
+
+</section>
+
+
+<section class="features">
+
+<div class="feature">
+<h3>Fast Detection</h3>
+<p>Instant phishing analysis.</p>
+</div>
+
+<div class="feature">
+<h3>ML Powered</h3>
+<p>Machine Learning based prediction.</p>
+</div>
+
+<div class="feature">
+<h3>Secure Analysis</h3>
+<p>Analyze suspicious URLs safely.</p>
+</div>
+
+</section>
+
+
+<footer>
+© 2026 Phishing URL Classifier
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

@@ -70,7 +70,7 @@ class ModelTrainer:
 
             print(model_report)
 
-            best_model_name = max(model_report,key=model_report.get())
+            best_model_name = max(model_report,key=model_report.get)
             best_model_score = model_report[best_model_name]
 
             best_model_object = self.models[best_model_name]

@@ -41,7 +41,7 @@ class DataTransformation:
           raise CustomException(e,sys)
     
     
-    def get_data(self,feature_store_file_path: str):
+    def get_data(self,feature_store_file_path: str)->pd.DataFrame:
         try:
             
             logging.info("Reading dataset from feature store")
@@ -90,7 +90,7 @@ class DataTransformation:
             df = self.get_data(self.feature_store_file_path)
             logging.info("Replacing target values")
 
-            df = df.drop_duplicates(inplace=True,ignore_index=False)
+            df.drop_duplicates(inplace=True,ignore_index=False)
 
             df[TARGET_COLUMN] = df[TARGET_COLUMN].replace({-1:0})
 
@@ -101,11 +101,11 @@ class DataTransformation:
 
             logging.info("Performing train-test split")
 
-            X_train,X_test,y_test,y_train = train_test_split(X,y,test_size=0.2,random_state=42)
+            X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
 
             logging.info("Train test split completed")
 
-            preprocessor = self.get_data_transform_object()
+            preprocessor = self.get_data_transformer_object()
 
             logging.info("Applying preprocessing on training data")
 

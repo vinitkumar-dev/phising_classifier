@@ -1,4 +1,4 @@
-from src.exception import CustomEXception
+from src.exception import CustomException
 from src.constant import *
 from src.logger import logging
 from src.utils.main_utils import MainUtils
@@ -30,7 +30,7 @@ class DataIngestion:
 
             df = pd.DataFrame(list(collection.find()))
             if '_id' in df.columns:
-                df = df.drop('_id',axis=1,inplace=True)
+                df.drop('_id',axis=1,inplace=True)
 
             df.replace('na',np.nan,inplace=True)
 
@@ -38,7 +38,7 @@ class DataIngestion:
 
 
        except Exception as e:
-           raise CustomEXception()
+           raise CustomException(e,sys)
     
     def export_data_into_feature_store_file_path(self):
 
@@ -49,7 +49,7 @@ class DataIngestion:
             raw_file_path  = self.data_ingestion_config.artifact_folder
             os.makedirs(raw_file_path,exist_ok=True)
 
-            phishing_data = self.export_collection_as_dataframe(collection_name=MONGO_DATABASE_NAME,db_name=MONGO_DATABASE_NAME)
+            phishing_data = self.export_collection_as_dataframe(collection_name=MONGO_COLLECTION_NAME,db_name=MONGO_DATABASE_NAME)
 
             logging.info(f'saving exported data into feature store file path :{raw_file_path}')
 
@@ -61,7 +61,7 @@ class DataIngestion:
 
 
         except Exception as e:
-            raise CustomEXception(e,sys)
+            raise CustomException(e,sys)
         
     
     def initiate_data_ingestion(self):
@@ -78,5 +78,5 @@ class DataIngestion:
 
 
         except Exception as e:
-            raise CustomEXception(e,sys)
+            raise CustomException(e,sys)
             

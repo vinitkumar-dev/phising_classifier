@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Predict URL</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+Phishing URL Classifier
+</div>
+
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/train">Train Model</a></li>
+<li><a href="/predict">Predict URL</a></li>
+</ul>
+
+</nav>
+
+
+<div class="container">
+
+<h1>Predict URL</h1>
+
+<form id="predictForm">
+
+<input
+type="text"
+name="url"
+id="url"
+placeholder="Enter URL"
+required
+>
+
+<button class="btn">
+Predict
+</button>
+
+</form>
+
+<div id="predictLoader"
+class="loader hidden">
+</div>
+
+<div id="predictionResult"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
